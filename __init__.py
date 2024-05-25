@@ -43,6 +43,8 @@ class BackwardMermaidImageObjectType(BackwardImageGeneratorObjectType):
 
 class MermaidGenerator(ImageGeneratorClass):
 
+    imagefile_extension = '.png'
+    
     def __init__(self, plugin, notebook, page):
         ImageGeneratorClass.__init__(self, plugin, notebook, page)
         self.mmd_file = TmpFile('mermaid.mmd')
