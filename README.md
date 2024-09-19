@@ -6,16 +6,22 @@ This [Zim](https://github.com/zim-desktop-wiki/zim-desktop-wiki "Zim - A Desktop
 
 ```bash
 # step 1 - install dependencies
+# Windows:
+winget install nodejs
+winget install imagemagick
+npm install -g @mermaid-js/mermaid-cli
+
+# Linux:
 apt-get install imagemagick
 npm install -g @mermaid-js/mermaid-cli
 
-# step 1 - install this plugin
+# step 2 - install this plugin
 git clone https://this/repo.git ~/.local/share/zim/plugins/insert_mermaid/
 
 # step 3 - restart Zim to load this plugin
 
 # step 4 - enable this plugin
-# In Edit > Preferences > Plugins tab, you can now tick Insert Image form Mermaid.
+# In Edit > Preferences > Plugins tab, you can now tick Insert Image from Mermaid.
 
 ```
 
