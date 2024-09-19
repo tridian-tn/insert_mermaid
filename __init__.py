@@ -15,6 +15,8 @@ logger = logging.getLogger('zim.plugins.insert_mermaid')
 # https://github.com/mermaidjs/mermaid.cli#options
 puppeteer_config = os.path.dirname(os.path.abspath(__file__)) + "/data/puppeteer-config.json"
 mmdc_cmd = ['mmdc', "-p", puppeteer_config]
+# Windows fix: resolve the dependency above without the extension (the mmdc file exists), but use the .cmd command below to run it
+mmdc_cmdwithext = (('mmdc.cmd' if os.name == 'nt' else 'mmdc'), "-p", puppeteer_config)
 convert_cmd = ['convert']
 
 
@@ -56,7 +58,7 @@ class MermaidGenerator(ImageGeneratorClass):
 
         # Call mmdc
         try:
-            mmdc = Application(mmdc_cmd)
+            mmdc = Application(mmdc_cmdwithext)
             mmdc.run(("-i", self.mmd_file, "-o", self.png_file))
         except ApplicationError:
             logger.exception("[PLUGIN:INSERT MERMAID] ApplicationError: mmdc error.")
