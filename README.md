@@ -7,8 +7,9 @@ This [Zim](https://github.com/zim-desktop-wiki/zim-desktop-wiki "Zim - A Desktop
 ```bash
 # step 1 - install dependencies
 # Windows:
+# Note that you will need to refresh the terminal between installing nodejs and running npm, so that the PATH is refreshed
 winget install nodejs
-winget install imagemagick
+winget install --Id=imagemagick.imagemagick
 npm install -g @mermaid-js/mermaid-cli
 
 # Linux:
